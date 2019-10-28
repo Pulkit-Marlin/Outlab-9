@@ -17,6 +17,8 @@ import java.util.ArrayList;
 import android.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.content.Context;
+import android.widget.LinearLayout;
 
 import com.example.outlab_9.db.TaskContract;
 import com.example.outlab_9.db.TaskDbHelper;
@@ -70,19 +72,48 @@ public class MainActivity extends AppCompatActivity {
 //                LayoutInflater inflater = getLayoutInflater();
 //                final EditText taskEditText1 = new EditText(this);
 //                final EditText taskEditText2 = new EditText(this);
+
+//                final EditText taskEditText1 = (EditText)
+
+//                Context context = mapView.getContext();
+                LinearLayout layout = new LinearLayout(this);
+                layout.setOrientation(LinearLayout.VERTICAL);
+
+                // Add a TextView here for the "Title" label, as noted in the comments
+                final EditText titleBox = new EditText(this);
+                titleBox.setHint("Title");
+                layout.addView(titleBox); // Notice this is an add method
+
+                // Add another TextView here for the "Description" label
+                final EditText descriptionBox = new EditText(this);
+                descriptionBox.setHint("Description");
+                layout.addView(descriptionBox); // Another add method
+
+//                dialog.setView(layout); // Again this is a set method, not add
+
+//                LayoutInflater factory = LayoutInflater.from(this);
+//
+//                //text_entry is an Layout XML file containing two text field to display in alert dialog
+//                final View textEntryView = factory.inflate(R.layout.dialogue1, null);
+//
+//                final EditText input1 = (EditText) textEntryView.findViewById(R.id.EditText1);
+//                final EditText input2 = (EditText) textEntryView.findViewById(R.id.EditText2);
+
                 AlertDialog dialog = new AlertDialog.Builder(this)
 //                        .setTitle("Add a new task")
 //                        .setMessage("What do you want to do next?")
-//                        .setView(taskEditText1)
+//                        .setView(taskEditText1, taskEditText1)
 //                        .setView(taskEditText2)
-
-                        .setView(getLayoutInflater().inflate(R.layout.dialogue1, null))
+//
+//                        .setView(getLayoutInflater().inflate(R.layout.dialogue1, null))
+                        .setView(layout)
 
                         .setPositiveButton("Add", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                String task1 = String.valueOf(R.layout.dialogue1.findViewById("username").getText());
-                                String task2 = String.valueOf(R.layout.dialogue1.findViewById("password").getText());
+//                                String task = String.valueOf(taskEditText.getText());
+                                String task1 = String.valueOf(titleBox.getText());
+                                String task2 = String.valueOf(descriptionBox.getText());
                                 SQLiteDatabase db = mHelper.getWritableDatabase();
                                 ContentValues values = new ContentValues();
                                 values.put(TaskContract.TaskEntry.COL_TASK_TITLE, task1);

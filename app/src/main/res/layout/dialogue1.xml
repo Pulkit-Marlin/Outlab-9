@@ -3,22 +3,16 @@
     android:orientation="vertical"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="64dp"
-        android:scaleType="center"
-        android:background="#FFFFBB33"
-        android:contentDescription="A" />
-    <EditText
+
+    <Text
         android:id="@+id/username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginLeft="4dp"
         android:layout_marginRight="4dp"
-        android:layout_marginBottom="4dp"
-        android:text="B" />
-    <EditText
+        android:layout_marginBottom="4dp" />
+    <Text
         android:id="@+id/password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -26,6 +20,5 @@
         android:layout_marginLeft="4dp"
         android:layout_marginRight="4dp"
         android:layout_marginBottom="16dp"
-        android:fontFamily="sans-serif"
-        android:text="C"/>
+        android:fontFamily="sans-serif"/>
 </LinearLayout>
